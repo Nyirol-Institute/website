@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer - Nyirol Institute of Innovation and Technology</title>
+    <meta name="description" content="Join our volunteer program at Nyirol Institute and help empower South Sudanese youth through technology education and mentorship.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/logo.svg">
+    <style>
+        .volunteer-option {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .volunteer-option:hover {
+            transform: translateY(-5px);
+        }
+        
+        .volunteer-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .volunteer-form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            min-width: 200px;
+        }
+        
+        .checkbox-item input {
+            margin-top: 0.25rem;
+            margin-right: 0.5rem;
+        }
+        
+        .volunteer-story {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        
+        .volunteer-image {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .volunteer-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .volunteer-text {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        @media (max-width: 768px) {
+            .volunteer-story {
+                flex-direction: column;
+            }
+            
+            .volunteer-image {
+                order: 1;
+            }
+            
+            .volunteer-text {
+                order: 2;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.svg" alt="Nyirol Institute Logo">
+                <div class="logo-text">Nyirol Institute</div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="volunteer.html" class="active">Volunteer</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-color: var(--primary-color);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Volunteer With Us</h1>
+                <p>Share your skills and make a lasting impact by helping South Sudanese youth build careers in technology.</p>
+            </div>
+        </div>
+        <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+    </section>
+
+    <!-- Why Volunteer -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Volunteer With Us</h2>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <p>Volunteering with Nyirol Institute is a unique opportunity to make a meaningful difference in the lives of South Sudanese youth while sharing your skills and expertise. Our volunteers play a crucial role in our mission to provide quality technology education and create pathways out of poverty.</p>
+                    <p>Whether you're a tech professional, educator, or someone passionate about making a difference, your contribution can help transform lives and communities. Volunteers bring diverse perspectives, specialized knowledge, and additional capacity that enhances our programs and expands our impact.</p>
+                    <p>Join our global community of volunteers who are helping to build a brighter future for South Sudan through technology education and innovation.</p>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                        <div style="text-align: center; padding: 1rem;">
+                            <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 0.5rem;">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h4>Make an Impact</h4>
+                        </div>
+                        <div style="text-align: center; padding: 1rem;">
+                            <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 0.5rem;">
+                                <i class="fas fa-globe-africa"></i>
+                            </div>
+                            <h4>Cultural Exchange</h4>
+                        </div>
+                        <div style="text-align: center; padding: 1rem;">
+                            <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 0.5rem;">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <h4>Build Connections</h4>
+                        </div>
+                        <div style="text-align: center; padding: 1rem;">
+                            <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 0.5rem;">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4>Share Knowledge</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Opportunities -->
+    <section class="section" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Volunteer Opportunities</h2>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">We offer a variety of volunteer opportunities that match different skills, interests, and time commitments. Whether you can volunteer remotely or in person, for a few hours or several months, we have options that will allow you to make a meaningful contribution.</p>
+            
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="volunteer-option">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Technical Instructor</h3>
+                    <p>Share your technical expertise by teaching classes or workshops in areas such as programming, web development, graphic design, data analysis, or other tech specializations.</p>
+                    <p><strong>Time Commitment:</strong> Flexible, from one-time workshops to regular classes</p>
+                    <p><strong>Location:</strong> In-person or remote</p>
+                </div>
+                
+                <div class="volunteer-option">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Career Mentor</h3>
+                    <p>Guide students in their professional development through one-on-one mentoring, resume reviews, interview preparation, and career advice in technology fields.</p>
+                    <p><strong>Time Commitment:</strong> 1-2 hours per week for 3+ months</p>
+                    <p><strong>Location:</strong> Remote (video calls)</p>
+                </div>
+                
+                <div class="volunteer-option">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Project Coach</h3>
+                    <p>Support student teams working on tech projects by providing guidance, feedback, and technical assistance throughout the development process.</p>
+                    <p><strong>Time Commitment:</strong> 2-4 hours per week for project duration</p>
+                    <p><strong>Location:</strong> Remote or in-person</p>
+                </div>
+                
+                <div class="volunteer-option">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Solar Technology Specialist</h3>
+                    <p>Help maintain and optimize our solar power systems, train staff on maintenance procedures, and support the expansion of our sustainable energy infrastructure.</p>
+                    <p><strong>Time Commitment:</strong> 1-4 weeks on-site</p>
+                    <p><strong>Location:</strong> In-person</p>
+                </div>
+                
+                <div class="volunteer-option">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>IT Support</h3>
+                    <p>Assist with maintaining our computer labs, troubleshooting technical issues, setting up networks, and implementing IT solutions for our educational programs.</p>
+                    <p><strong>Time Commitment:</strong> Flexible, from remote assistance to on-site support</p>
+                    <p><strong>Location:</strong> Remote or in-person</p>
+                </div>
+                
+                <div class="volunteer-option">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Curriculum Developer</h3>
+                    <p>Help create or improve educational materials, lesson plans, and learning resources for our technology programs, ensuring they are relevant and effective.</p>
+                    <p><strong>Time Commitment:</strong> Flexible, project-based</p>
+                    <p><strong>Location:</strong> Remote</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Stories -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Volunteer Stories</h2>
+            </div>
+            
+            <div class="volunteer-story">
+                <div class="volunteer-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Michael Johnson">
+                </div>
+                <div class="volunteer-text">
+                    <h3>Michael Johnson</h3>
+                    <p style="font-style: italic; margin-bottom: 1rem;">Web Development Instructor | Remote Volunteer from Canada</p>
+                    <p>"I've been volunteering as a remote web development instructor for Nyirol Institute for the past year, teaching weekly classes via video conference. It's been incredibly rewarding to see the progress of my students, many of whom had never written a line of code before our first class.</p>
+                    <p>What I love most about volunteering with Nyirol Institute is the direct impact I can see. One of my students recently landed a remote job as a junior developer, which will completely transform his life and his family's future. The dedication and enthusiasm of the students is truly inspiring, and it motivates me to continue sharing my knowledge and skills.</p>
+                    <p>Even though I volunteer remotely, I feel deeply connected to the community and mission of Nyirol Institute. The staff provides excellent support, and I've built meaningful relationships with both colleagues and students."</p>
+                </div>
+            </div>
+            
+            <div class="volunteer-story">
+                <div class="volunteer-text">
+                    <h3>Sophia Chen</h3>
+                    <p style="font-style: italic; margin-bottom: 1rem;">UX Design Mentor | On-site Volunteer for 3 months</p>
+                    <p>"I took a sabbatical from my job as a UX designer to spend three months on-site at Nyirol Institute, and it was one of the most transformative experiences of my life. I worked with a group of talented students in the UX/UI Design specialization, mentoring them through real-world projects and helping them build professional portfolios.</p>
+                    <p>Living and working in Nyirol County gave me a deep appreciation for the challenges and opportunities in the region. The resilience and creativity of the students continually amazed me, and I learned as much from them as they did from me. We tackled projects focused on local needs, designing interfaces for solar energy monitoring, agricultural information systems, and educational tools.</p>
+                    <p>The experience has changed my perspective on design, technology, and education. I've returned to my job with new insights and a continued connection to Nyirol Institute, where I still mentor students remotely and help connect graduates with opportunities in my professional network."</p>
+                </div>
+                <div class="volunteer-image">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Sophia Chen">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Application -->
+    <section class="section" style="background-color: var(--background-light);" id="apply">
+        <div class="container">
+            <div class="section-title">
+                <h2>Volunteer Application</h2>
+            </div>
+            <div class="volunteer-form">
+                <form id="volunteer-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name" class="form-label">First Name</label>
+                            <input type="text" id="first-name" name="first_name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name" class="form-label">Last Name</label>
+                            <input type="text" id="last-name" name="last_name" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location" class="form-label">Current Location (City, Country)</label>
+                        <input type="text" id="location" name="location" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Volunteer Type</label>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="remote" name="volunteer_type" value="remote" checked>
+                                <label for="remote" style="margin-left: 0.5rem;">Remote</label>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="in-person" name="volunteer_type" value="in-person">
+                                <label for="in-person" style="margin-left: 0.5rem;">In-person</label>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" id="both" name="volunteer_type" value="both">
+                                <label for="both" style="margin-left: 0.5rem;">Both</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Areas of Interest (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="technical-instruction" name="interests" value="technical-instruction">
+                                <label for="technical-instruction">Technical Instruction</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="career-mentoring" name="interests" value="career-mentoring">
+                                <label for="career-mentoring">Career Mentoring</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="project-coaching" name="interests" value="project-coaching">
+                                <label for="project-coaching">Project Coaching</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="solar-technology" name="interests" value="solar-technology">
+                                <label for="solar-technology">Solar Technology</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="it-support" name="interests" value="it-support">
+                                <label for="it-support">IT Support</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="curriculum-development" name="interests" value="curriculum-development">
+                                <label for="curriculum-development">Curriculum Development</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="other-interest" name="interests" value="other">
+                                <label for="other-interest">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Technical Skills (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="web-development" name="skills" value="web-development">
+                                <label for="web-development">Web Development</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="graphic-design" name="skills" value="graphic-design">
+                                <label for="graphic-design">Graphic Design</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ux-ui-design" name="skills" value="ux-ui-design">
+                                <label for="ux-ui-design">UX/UI Design</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="data-science" name="skills" value="data-science">
+                                <label for="data-science">Data Science</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="data-analytics" name="skills" value="data-analytics">
+                                <label for="data-analytics">Data Analytics</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="animation" name="skills" value="animation">
+                                <label for="animation">Animation</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="network-admin" name="skills" value="network-admin">
+                                <label for="network-admin">Network Administration</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="solar-energy" name="skills" value="solar-energy">
+                                <label for="solar-energy">Solar Energy</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="teaching" name="skills" value="teaching">
+                                <label for="teaching">Teaching/Training</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="other-skill" name="skills" value="other">
+                                <label for="other-skill">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="availability" class="form-label">Availability</label>
+                        <select id="availability" name="availability" class="form-control" required>
+                            <option value="">Select your availability</option>
+                            <option value="1-5 hours per week">1-5 hours per week</option>
+                            <option value="5-10 hours per week">5-10 hours per week</option>
+                            <option value="10+ hours per week">10+ hours per week</option>
+                            <option value="one-time workshop">One-time workshop</option>
+                            <option value="short-term (1-4 weeks)">Short-term (1-4 weeks)</option>
+                            <option value="medium-term (1-3 months)">Medium-term (1-3 months)</option>
+                            <option value="long-term (3+ months)">Long-term (3+ months)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience" class="form-label">Relevant Experience</label>
+                        <textarea id="experience" name="experience" class="form-control" rows="4" placeholder="Please describe your relevant professional experience, skills, and qualifications."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motivation" class="form-label">Motivation</label>
+                        <textarea id="motivation" name="motivation" class="form-control" rows="4" placeholder="Why are you interested in volunteering with Nyirol Institute? What do you hope to contribute and gain from this experience?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cv" class="form-label">Resume/CV (Optional)</label>
+                        <input type="file" id="cv" name="cv" class="form-control">
+                        <small>Please upload your resume or CV in PDF format (max 5MB).</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="linkedin" class="form-label">LinkedIn Profile URL (Optional)</label>
+                        <input type="url" id="linkedin" name="linkedin" class="form-control" placeholder="https://www.linkedin.com/in/yourprofile">
+                    </div>
+                    
+                    <div class="form-group" style="margin-top: 1rem;">
+                        <div style="display: flex; align-items: flex-start;">
+                            <input type="checkbox" id="terms" name="terms" required style="margin-top: 0.25rem;">
+                            <label for="terms" style="margin-left: 0.5rem;">I understand that this is a volunteer position and agree to abide by Nyirol Institute's code of conduct and policies.</label>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button type="submit" class="btn btn-primary" style="min-width: 200px;">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div class="card-content">
+                        <h3 class="card-title">Do I need to have teaching experience to volunteer?</h3>
+                        <p>No, teaching experience is not required for all volunteer roles. While it's beneficial for instructional positions, we provide guidance and support to help you succeed. Your technical expertise and willingness to share knowledge are the most important qualifications.</p>
+                    </div>
+                </div>
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div class="card-content">
+                        <h3 class="card-title">What is the time commitment for volunteers?</h3>
+                        <p>We offer flexible volunteer opportunities to accommodate different schedules. Commitments range from one-time workshops to regular weekly sessions or longer-term placements. During the application process, we'll work with you to find an arrangement that fits your availability.</p>
+                    </div>
+                </div>
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div class="card-content">
+                        <h3 class="card-title">Can I volunteer remotely?</h3>
+                        <p>Yes, many of our volunteer positions can be done remotely, including technical instruction, mentoring, curriculum development, and some IT support roles. Remote volunteers connect with our students and staff through video conferencing and collaborative online tools.</p>
+                    </div>
+                </div>
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div class="card-content">
+                        <h3 class="card-title">What support will I receive as a volunteer?</h3>
+                        <p>All volunteers receive an orientation to our programs and community, ongoing support from our staff, access to teaching resources and materials, and regular check-ins to address any questions or challenges. For in-person volunteers, we also provide accommodation arrangements and local orientation.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">What is the application and selection process?</h3>
+                        <p>After submitting your application, our volunteer coordinator will review it and contact you for an initial interview. If there's a good match between your skills and our needs, we'll conduct a more detailed discussion about specific opportunities and arrangements. The entire process typically takes 2-3 weeks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section" style="background-color: var(--primary-color); color: var(--text-light);">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: var(--text-light);">Ready to Make a Difference?</h2>
+            <p>Join our volunteer team and help empower South Sudanese youth through technology education.</p>
+            <div style="margin-top: 2rem;">
+                <a href="#apply" class="btn btn-accent">Apply Now</a>
+                <a href="contact.html" class="btn btn-outline" style="color: var(--text-light); border-color: var(--text-light); margin-left: 1rem;">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="Nyirol Institute Logo">
+                    </div>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Nyirol County, South Sudan</p>
+                        <p><i class="fas fa-envelope"></i> info@nyirolinstitute.org</p>
+                        <p><i class="fas fa-phone"></i> +211 92 123 4567</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Our Programs</a></li>
+                        <li><a href="donate.html">Support Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="programs.html#digital-literacy">Digital Literacy</a></li>
+                        <li><a href="programs.html#tech-specialization">Tech Specialization</a></li>
+                        <li><a href="programs.html#job-placement">Job Placement</a></li>
+                        <li><a href="programs.html#university-pathway">University Pathway</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Get Involved</h3>
+                    <ul>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="contact.html#partnerships">Partnerships</a></li>
+                        <li><a href="contact.html#careers">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nyirol Institute of Innovation and Technology. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Form submission (simulated)
+        document.addEventListener('DOMContentLoaded', function() {
+            const volunteerForm = document.getElementById('volunteer-form');
+            if (volunteerForm) {
+                volunteerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your interest in volunteering with Nyirol Institute! This is a demo form. In a real implementation, your application would be submitted for review, and our volunteer coordinator would contact you within 5-7 business days.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

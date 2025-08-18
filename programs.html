@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - Nyirol Institute of Innovation and Technology</title>
+    <meta name="description" content="Explore our educational programs at Nyirol Institute, from digital literacy to advanced tech specializations and university pathways for South Sudanese youth.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/logo.svg">
+    <style>
+        .program-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: var(--primary-color);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 2rem);
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 2rem);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            background-color: var(--accent-color);
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        .timeline-content {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h3 {
+            margin-top: 0;
+        }
+        
+        .program-details {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .program-tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+        
+        .program-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--accent-color);
+        }
+        
+        .program-tab:hover {
+            color: var(--primary-color);
+        }
+        
+        .program-content {
+            display: none;
+        }
+        
+        .program-content.active {
+            display: block;
+        }
+        
+        .specialization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .specialization-card {
+            background-color: var(--background-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .specialization-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .specialization-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 80px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.svg" alt="Nyirol Institute Logo">
+                <div class="logo-text">Nyirol Institute</div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="programs.html" class="active">Programs</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-color: var(--primary-color);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Educational Programs</h1>
+                <p>Comprehensive technology education pathways designed to empower South Sudanese youth with in-demand skills for the digital economy.</p>
+            </div>
+        </div>
+        <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+    </section>
+
+    <!-- Educational Pathway Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Educational Pathway</h2>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">Our comprehensive educational pathway is designed to take students from basic digital literacy to advanced tech specialization and career opportunities. Each stage builds upon the previous, creating a seamless learning journey.</p>
+            
+            <div class="program-timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-item" id="digital-literacy">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Digital Literacy</h3>
+                        <p><strong>Duration:</strong> 3 months</p>
+                        <p>The foundation of our educational pathway, providing essential computer skills and digital knowledge to prepare students for more advanced technology training.</p>
+                        <a href="#program-details" class="btn btn-outline" onclick="showProgram('digital-literacy-content')">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" id="tech-specialization">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Tech Specialization</h3>
+                        <p><strong>Duration:</strong> 6 months</p>
+                        <p>Students select a specialized technology track based on their interests and aptitudes, developing in-demand skills for specific tech careers.</p>
+                        <a href="#program-details" class="btn btn-outline" onclick="showProgram('tech-specialization-content')">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" id="job-placement">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Job Placement & Internships</h3>
+                        <p><strong>Duration:</strong> Ongoing support</p>
+                        <p>Graduates are connected with employment and internship opportunities through our network of partner organizations and businesses.</p>
+                        <a href="#program-details" class="btn btn-outline" onclick="showProgram('job-placement-content')">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" id="university-pathway">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>University Pathway</h3>
+                        <p><strong>Duration:</strong> 8 months</p>
+                        <p>For students interested in higher education, this program prepares them for university-level studies through our partner institutions.</p>
+                        <a href="#program-details" class="btn btn-outline" onclick="showProgram('university-pathway-content')">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Details -->
+    <section class="section" style="background-color: var(--background-light);" id="program-details">
+        <div class="container">
+            <div class="section-title">
+                <h2>Program Details</h2>
+            </div>
+            
+            <div class="program-tabs">
+                <div class="program-tab active" data-program="digital-literacy-content">Digital Literacy</div>
+                <div class="program-tab" data-program="tech-specialization-content">Tech Specialization</div>
+                <div class="program-tab" data-program="job-placement-content">Job Placement</div>
+                <div class="program-tab" data-program="university-pathway-content">University Pathway</div>
+            </div>
+            
+            <div class="program-details">
+                <div class="program-content active" id="digital-literacy-content">
+                    <h3>Digital Literacy Program</h3>
+                    <p><strong>Duration:</strong> 3 months</p>
+                    <p><strong>Eligibility:</strong> Open to all South Sudanese youth in Nyirol County, ages 16-30</p>
+                    <p><strong>Cost:</strong> Free for selected applicants</p>
+                    
+                    <h4>Program Overview</h4>
+                    <p>Our Digital Literacy Program provides a comprehensive introduction to computer technology and digital skills. This foundational program is designed for students with limited or no prior experience with computers and technology.</p>
+                    
+                    <h4>Curriculum Highlights</h4>
+                    <ul>
+                        <li><strong>Computer Basics:</strong> Hardware components, operating systems, file management</li>
+                        <li><strong>Internet Skills:</strong> Web browsing, search techniques, online safety and security</li>
+                        <li><strong>Productivity Software:</strong> Word processing, spreadsheets, presentations</li>
+                        <li><strong>Email and Communication:</strong> Email management, online collaboration tools</li>
+                        <li><strong>Introduction to Programming:</strong> Basic concepts and simple coding exercises</li>
+                        <li><strong>Digital Citizenship:</strong> Online ethics, privacy, and responsible use of technology</li>
+                    </ul>
+                    
+                    <h4>Learning Approach</h4>
+                    <p>Classes are conducted in our solar-powered computer lab, with a hands-on approach that emphasizes practical skills development. Students work on real-world projects and assignments that reinforce their learning.</p>
+                    
+                    <h4>Outcomes</h4>
+                    <p>Upon completion of the Digital Literacy Program, students will:</p>
+                    <ul>
+                        <li>Demonstrate proficiency in basic computer operations</li>
+                        <li>Navigate the internet safely and effectively</li>
+                        <li>Create and edit documents, spreadsheets, and presentations</li>
+                        <li>Understand fundamental programming concepts</li>
+                        <li>Be prepared to advance to our Tech Specialization programs</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="contact.html#apply" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+                
+                <div class="program-content" id="tech-specialization-content">
+                    <h3>Tech Specialization Programs</h3>
+                    <p><strong>Duration:</strong> 6 months</p>
+                    <p><strong>Eligibility:</strong> Graduates of our Digital Literacy Program or individuals with equivalent skills</p>
+                    <p><strong>Cost:</strong> Free for selected applicants; scholarship opportunities available</p>
+                    
+                    <h4>Program Overview</h4>
+                    <p>Our Tech Specialization Programs allow students to develop advanced skills in specific technology fields. These intensive programs combine theoretical knowledge with practical application, preparing students for careers in the global tech industry.</p>
+                    
+                    <h4>Available Specializations</h4>
+                    <div class="specialization-grid">
+                        <div class="specialization-card">
+                            <div class="specialization-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h4>Graphic Design</h4>
+                            <p>Learn to create visual content using industry-standard design software. Develop skills in digital illustration, branding, and print design.</p>
+                        </div>
+                        
+                        <div class="specialization-card">
+                            <div class="specialization-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h4>UX/UI Design</h4>
+                            <p>Master the principles of user experience and interface design. Create intuitive, accessible, and engaging digital products.</p>
+                        </div>
+                        
+                        <div class="specialization-card">
+                            <div class="specialization-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4>Frontend Development</h4>
+                            <p>Build interactive websites and applications using HTML, CSS, JavaScript, and modern frameworks like React.</p>
+                        </div>
+                        
+                        <div class="specialization-card">
+                            <div class="specialization-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h4>Backend Development</h4>
+                            <p>Develop server-side applications, APIs, and databases using languages like Python, Node.js, and SQL.</p>
+                        </div>
+                        
+                        <div class="specialization-card">
+                            <div class="specialization-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4>Data Science</h4>
+                            <p>Learn to analyze and interpret complex data using statistical methods, machine learning, and visualization techniques.</p>
+                        </div>
+                        
+                        <div class="specialization-card">
+                            <div class="specialization-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h4>Data Analytics</h4>
+                            <p>Master tools and techniques for transforming data into actionable insights for business decision-making.</p>
+                        </div>
+                        
+                        <div class="specialization-card">
+                            <div class="specialization-icon">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <h4>Animation</h4>
+                            <p>Create compelling motion graphics and animations for entertainment, education, and marketing purposes.</p>
+                        </div>
+                    </div>
+                    
+                    <h4>Learning Approach</h4>
+                    <p>Each specialization includes:</p>
+                    <ul>
+                        <li>Intensive technical training from industry professionals</li>
+                        <li>Hands-on projects that build a professional portfolio</li>
+                        <li>Collaboration with peers on team projects</li>
+                        <li>Industry-relevant tools and technologies</li>
+                        <li>Professional development and soft skills training</li>
+                    </ul>
+                    
+                    <h4>Outcomes</h4>
+                    <p>Upon completion of a Tech Specialization Program, students will:</p>
+                    <ul>
+                        <li>Possess industry-relevant technical skills in their chosen field</li>
+                        <li>Have a professional portfolio demonstrating their capabilities</li>
+                        <li>Be prepared for entry-level positions or freelance work</li>
+                        <li>Qualify for our Job Placement services</li>
+                        <li>Have the option to continue to our University Pathway program</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="contact.html#apply" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+                
+                <div class="program-content" id="job-placement-content">
+                    <h3>Job Placement & Internships</h3>
+                    <p><strong>Duration:</strong> Ongoing support</p>
+                    <p><strong>Eligibility:</strong> Graduates of our Tech Specialization Programs</p>
+                    <p><strong>Cost:</strong> Free service for all graduates</p>
+                    
+                    <h4>Program Overview</h4>
+                    <p>Our Job Placement program connects graduates with employment and internship opportunities in the tech industry. We leverage our network of partner organizations and businesses to help our students launch their careers.</p>
+                    
+                    <h4>Services Provided</h4>
+                    <ul>
+                        <li><strong>Career Counseling:</strong> One-on-one guidance to help students identify career paths aligned with their skills and interests</li>
+                        <li><strong>Resume and Portfolio Development:</strong> Support in creating professional resumes and portfolios that showcase students' skills</li>
+                        <li><strong>Interview Preparation:</strong> Mock interviews and feedback to help students present themselves confidently</li>
+                        <li><strong>Job Matching:</strong> Connecting students with job opportunities that match their skills and career goals</li>
+                        <li><strong>Internship Placement:</strong> Arranging internships with partner organizations to provide real-world experience</li>
+                        <li><strong>Remote Work Preparation:</strong> Training on tools and practices for effective remote work</li>
+                        <li><strong>Entrepreneurship Support:</strong> Guidance for students interested in freelancing or starting their own businesses</li>
+                    </ul>
+                    
+                    <h4>Partner Network</h4>
+                    <p>We collaborate with a diverse range of organizations that provide employment and internship opportunities for our graduates:</p>
+                    <ul>
+                        <li>Local and international tech companies</li>
+                        <li>Non-profit organizations</li>
+                        <li>Government agencies</li>
+                        <li>Educational institutions</li>
+                        <li>Startups and small businesses</li>
+                    </ul>
+                    
+                    <h4>Success Stories</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem;">
+                        <div class="card" style="flex: 1; min-width: 300px;">
+                            <div class="card-content">
+                                <h4>James Deng</h4>
+                                <p style="font-style: italic;">Frontend Developer at TechSolutions</p>
+                                <p>"After completing the Frontend Development specialization, I was connected with a tech company in Juba. The job placement team helped me prepare for the interview and negotiate my salary. I'm now working as a frontend developer, building websites and applications."</p>
+                            </div>
+                        </div>
+                        <div class="card" style="flex: 1; min-width: 300px;">
+                            <div class="card-content">
+                                <h4>Sarah Ayen</h4>
+                                <p style="font-style: italic;">Remote UX Designer</p>
+                                <p>"The UX/UI Design program gave me skills that are in demand globally. Through the job placement program, I found a remote position with an international company. I now work from my community while earning a competitive salary."</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="contact.html#partners" class="btn btn-primary">Become a Partner</a>
+                    </div>
+                </div>
+                
+                <div class="program-content" id="university-pathway-content">
+                    <h3>University Pathway Program</h3>
+                    <p><strong>Duration:</strong> 8 months</p>
+                    <p><strong>Eligibility:</strong> Graduates of our Tech Specialization Programs who wish to pursue higher education</p>
+                    <p><strong>Cost:</strong> Scholarship opportunities available for qualified students</p>
+                    
+                    <h4>Program Overview</h4>
+                    <p>Our University Pathway Program prepares students for success in higher education, bridging the gap between our technical training and university-level studies. This program is designed for students who wish to pursue bachelor's degrees or other advanced credentials.</p>
+                    
+                    <h4>Curriculum Highlights</h4>
+                    <ul>
+                        <li><strong>Academic Preparation:</strong> Advanced mathematics, scientific principles, research methods, and academic writing</li>
+                        <li><strong>University Application Support:</strong> Guidance on selecting programs, preparing applications, and securing financial aid</li>
+                        <li><strong>Advanced Technical Courses:</strong> Specialized courses that align with university programs in computer science, information technology, and related fields</li>
+                        <li><strong>Language Proficiency:</strong> English language instruction focused on academic contexts</li>
+                        <li><strong>Study Skills:</strong> Time management, note-taking, exam preparation, and other essential academic skills</li>
+                    </ul>
+                    
+                    <h4>Partner Universities</h4>
+                    <p>We have established partnerships with universities that offer online and in-person degree programs in technology-related fields. These partnerships include:</p>
+                    <ul>
+                        <li>Special admission pathways for our graduates</li>
+                        <li>Credit recognition for skills acquired in our programs</li>
+                        <li>Scholarship opportunities for qualified students</li>
+                        <li>Mentorship from university faculty</li>
+                    </ul>
+                    
+                    <h4>Learning Formats</h4>
+                    <p>Our University Pathway Program offers flexible learning options to accommodate different student needs:</p>
+                    <ul>
+                        <li><strong>Online Learning:</strong> Access to university courses and resources through online platforms</li>
+                        <li><strong>Blended Learning:</strong> Combination of online courses and in-person instruction at our campus</li>
+                        <li><strong>Transition Support:</strong> For students who will relocate for in-person university studies</li>
+                    </ul>
+                    
+                    <h4>Outcomes</h4>
+                    <p>Upon completion of the University Pathway Program, students will:</p>
+                    <ul>
+                        <li>Be prepared for the academic demands of university-level studies</li>
+                        <li>Have completed university applications with support from our team</li>
+                        <li>Possess advanced knowledge in their chosen field of study</li>
+                        <li>Have a clear educational and career pathway</li>
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="contact.html#apply" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Process -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Admission Process</h2>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>How to Join Our Programs</h3>
+                    <p>Our admission process is designed to identify motivated students who will benefit most from our programs and contribute to their communities. We welcome applications from all South Sudanese youth in Nyirol County, regardless of prior education or experience.</p>
+                    
+                    <ol style="margin-top: 1.5rem;">
+                        <li style="margin-bottom: 1rem;"><strong>Application Submission:</strong> Complete our online or paper application form, including basic personal information and a statement of interest.</li>
+                        <li style="margin-bottom: 1rem;"><strong>Assessment:</strong> Participate in a basic assessment to help us understand your current skills and learning needs.</li>
+                        <li style="margin-bottom: 1rem;"><strong>Interview:</strong> Selected candidates will be invited for an interview to discuss their goals and motivation.</li>
+                        <li style="margin-bottom: 1rem;"><strong>Acceptance:</strong> Successful applicants will receive an acceptance letter with program details and start dates.</li>
+                        <li><strong>Orientation:</strong> Attend an orientation session to learn about our facilities, policies, and expectations.</li>
+                    </ol>
+                    
+                    <p style="margin-top: 1.5rem;">We select students based on their motivation, commitment to learning, and potential for success, not on prior academic achievements or technical knowledge.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="contact.html#apply" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Application Deadlines</h3>
+                            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                                <tr style="border-bottom: 1px solid #ddd;">
+                                    <th style="text-align: left; padding: 0.75rem 0;">Program</th>
+                                    <th style="text-align: left; padding: 0.75rem 0;">Next Intake</th>
+                                    <th style="text-align: left; padding: 0.75rem 0;">Deadline</th>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #ddd;">
+                                    <td style="padding: 0.75rem 0;">Digital Literacy</td>
+                                    <td style="padding: 0.75rem 0;">September 2025</td>
+                                    <td style="padding: 0.75rem 0;">August 15, 2025</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #ddd;">
+                                    <td style="padding: 0.75rem 0;">Tech Specialization</td>
+                                    <td style="padding: 0.75rem 0;">October 2025</td>
+                                    <td style="padding: 0.75rem 0;">September 1, 2025</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #ddd;">
+                                    <td style="padding: 0.75rem 0;">University Pathway</td>
+                                    <td style="padding: 0.75rem 0;">January 2026</td>
+                                    <td style="padding: 0.75rem 0;">November 30, 2025</td>
+                                </tr>
+                            </table>
+                            
+                            <h4 style="margin-top: 2rem;">Required Documents</h4>
+                            <ul>
+                                <li>Completed application form</li>
+                                <li>Copy of identification document</li>
+                                <li>Educational certificates (if available)</li>
+                                <li>Statement of interest</li>
+                                <li>Reference letter (optional)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities -->
+    <section class="section" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Facilities</h2>
+            </div>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Computer Lab" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Solar-Powered Computer Labs</h3>
+                        <p>Our computer labs are equipped with modern hardware and software, powered entirely by solar energy. This sustainable approach ensures reliable access to technology even in areas with limited electricity.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Classroom" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Collaborative Learning Spaces</h3>
+                        <p>Our classrooms are designed to facilitate collaborative learning and project-based work. Flexible seating arrangements and interactive technology support various teaching and learning approaches.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80" alt="Library" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Digital Resource Center</h3>
+                        <p>Our resource center provides access to digital learning materials, e-books, tutorials, and online courses. Students can access these resources both on campus and remotely through our digital platform.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Student Success Stories</h2>
+            </div>
+            <div class="grid">
+                <div class="card testimonial">
+                    <img src="https://images.unsplash.com/photo-1507152832244-10d45c7eda57?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="James Deng" class="testimonial-image">
+                    <p class="testimonial-text">"Before joining Nyirol Institute, I had never used a computer. The Digital Literacy program gave me a strong foundation, and the Frontend Development specialization equipped me with valuable skills. Now I'm working as a web developer and supporting my family."</p>
+                    <p class="testimonial-author">- James Deng, Frontend Developer</p>
+                </div>
+                <div class="card testimonial">
+                    <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Sarah Ayen" class="testimonial-image">
+                    <p class="testimonial-text">"The UX/UI Design program at Nyirol Institute changed my life. I learned how to create beautiful, user-friendly interfaces and built a strong portfolio. Now I work remotely for an international company while living in my community."</p>
+                    <p class="testimonial-author">- Sarah Ayen, UX Designer</p>
+                </div>
+                <div class="card testimonial">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="Peter Machar" class="testimonial-image">
+                    <p class="testimonial-text">"After completing the Data Science specialization, I joined the University Pathway program. With the support of Nyirol Institute, I received a scholarship to study computer science online. I'm now pursuing my degree while working part-time as a data analyst."</p>
+                    <p class="testimonial-author">- Peter Machar, Data Analyst & Student</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div class="card-content">
+                        <h3 class="card-title">Who can apply to your programs?</h3>
+                        <p>Our programs are open to South Sudanese youth in Nyirol County, ages 16-30. We welcome applicants from all backgrounds, regardless of prior education or experience with technology.</p>
+                    </div>
+                </div>
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div class="card-content">
+                        <h3 class="card-title">Is there a cost to attend your programs?</h3>
+                        <p>Our Digital Literacy Program is free for all selected applicants. For Tech Specialization and University Pathway programs, we offer scholarships and financial support options to ensure that cost is not a barrier to education.</p>
+                    </div>
+                </div>
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div class="card-content">
+                        <h3 class="card-title">Do I need to have computer experience to apply?</h3>
+                        <p>No prior computer experience is required for our Digital Literacy Program. We start with the basics and provide all the support you need to succeed.</p>
+                    </div>
+                </div>
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div class="card-content">
+                        <h3 class="card-title">How are students selected for the programs?</h3>
+                        <p>We select students based on their motivation, commitment to learning, and potential for success. Our application process includes a written application, a basic assessment, and an interview.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">What job opportunities are available after completing your programs?</h3>
+                        <p>Graduates of our programs have found employment in various tech roles, including web development, graphic design, data analysis, and IT support. Some work locally, while others secure remote positions with international companies. Our Job Placement program actively connects graduates with employment opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section" style="background-color: var(--primary-color); color: var(--text-light);">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: var(--text-light);">Ready to Start Your Tech Journey?</h2>
+            <p>Apply now to join our next cohort of students and transform your future through technology education.</p>
+            <div style="margin-top: 2rem;">
+                <a href="contact.html#apply" class="btn btn-accent">Apply Now</a>
+                <a href="contact.html" class="btn btn-outline" style="color: var(--text-light); border-color: var(--text-light); margin-left: 1rem;">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="Nyirol Institute Logo">
+                    </div>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Nyirol County, South Sudan</p>
+                        <p><i class="fas fa-envelope"></i> info@nyirolinstitute.org</p>
+                        <p><i class="fas fa-phone"></i> +211 92 123 4567</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Our Programs</a></li>
+                        <li><a href="donate.html">Support Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="#digital-literacy">Digital Literacy</a></li>
+                        <li><a href="#tech-specialization">Tech Specialization</a></li>
+                        <li><a href="#job-placement">Job Placement</a></li>
+                        <li><a href="#university-pathway">University Pathway</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Get Involved</h3>
+                    <ul>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="contact.html#partnerships">Partnerships</a></li>
+                        <li><a href="contact.html#careers">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nyirol Institute of Innovation and Technology. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Program tab switching
+        document.addEventListener('DOMContentLoaded', function() {
+            const programTabs = document.querySelectorAll('.program-tab');
+            const programContents = document.querySelectorAll('.program-content');
+            
+            programTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    programTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all program contents
+                    programContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Show corresponding content
+                    const programId = this.getAttribute('data-program');
+                    document.getElementById(programId).classList.add('active');
+                });
+            });
+        });
+        
+        // Function to show specific program content
+        function showProgram(programId) {
+            // Get the program tab associated with this content
+            const programTab = document.querySelector(`.program-tab[data-program="${programId}"]`);
+            
+            if (programTab) {
+                // Simulate click on the tab
+                programTab.click();
+                
+                // Scroll to program details section
+                document.getElementById('program-details').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Nyirol Institute of Innovation and Technology</title>
+    <meta name="description" content="Get in touch with Nyirol Institute of Innovation and Technology. Contact us for information about our programs, partnerships, donations, or general inquiries.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/logo.svg">
+    <style>
+        .contact-info-card {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .contact-tab-container {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .contact-tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+        
+        .contact-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--accent-color);
+        }
+        
+        .contact-tab:hover {
+            color: var(--primary-color);
+        }
+        
+        .contact-content {
+            display: none;
+        }
+        
+        .contact-content.active {
+            display: block;
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="images/logo.svg" alt="Nyirol Institute Logo">
+                <div class="logo-text">Nyirol Institute</div>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html" class="active">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-color: var(--primary-color);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Contact Us</h1>
+                <p>Have questions or want to get involved? We'd love to hear from you.</p>
+            </div>
+        </div>
+        <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Us</h3>
+                    <p>Nyirol Institute of Innovation and Technology<br>
+                    Main Campus<br>
+                    Nyirol County<br>
+                    South Sudan</p>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p><strong>General Inquiries:</strong><br>
+                    info@nyirolinstitute.org</p>
+                    <p><strong>Admissions:</strong><br>
+                    admissions@nyirolinstitute.org</p>
+                    <p><strong>Partnerships:</strong><br>
+                    partnerships@nyirolinstitute.org</p>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p><strong>Main Office:</strong><br>
+                    +211 92 123 4567</p>
+                    <p><strong>Admissions:</strong><br>
+                    +211 92 765 4321</p>
+                    <p><strong>International Office:</strong><br>
+                    +1 555 123 4567</p>
+                </div>
+                
+                <div class="contact-info-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Office Hours</h3>
+                    <p><strong>Monday - Friday:</strong><br>
+                    9:00 AM - 5:00 PM (East Africa Time)</p>
+                    <p><strong>Saturday:</strong><br>
+                    9:00 AM - 12:00 PM (East Africa Time)</p>
+                    <p><strong>Sunday:</strong><br>
+                    Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Tabs -->
+    <section class="section" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Can We Help You?</h2>
+            </div>
+            
+            <div class="contact-tab-container">
+                <div class="contact-tabs">
+                    <div class="contact-tab active" data-form="general-inquiry">General Inquiry</div>
+                    <div class="contact-tab" data-form="program-info">Program Information</div>
+                    <div class="contact-tab" data-form="partnerships" id="partnerships">Partnership Opportunities</div>
+                    <div class="contact-tab" data-form="apply" id="apply">Apply to Programs</div>
+                </div>
+                
+                <div class="contact-form">
+                    <!-- General Inquiry Form -->
+                    <div class="contact-content active" id="general-inquiry">
+                        <h3>General Inquiry</h3>
+                        <p>Have a question or comment? We'd love to hear from you. Please fill out the form below and we'll get back to you as soon as possible.</p>
+                        
+                        <form id="general-inquiry-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="gi-name" class="form-label">Full Name</label>
+                                    <input type="text" id="gi-name" name="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gi-email" class="form-label">Email Address</label>
+                                    <input type="email" id="gi-email" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="gi-subject" class="form-label">Subject</label>
+                                <input type="text" id="gi-subject" name="subject" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="gi-message" class="form-label">Message</label>
+                                <textarea id="gi-message" name="message" class="form-control" rows="5" required></textarea>
+                            </div>
+                            
+                            <div style="text-align: center; margin-top: 2rem;">
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Program Information Form -->
+                    <div class="contact-content" id="program-info">
+                        <h3>Program Information Request</h3>
+                        <p>Interested in learning more about our educational programs? Fill out this form to receive detailed information about our offerings.</p>
+                        
+                        <form id="program-info-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="pi-name" class="form-label">Full Name</label>
+                                    <input type="text" id="pi-name" name="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pi-email" class="form-label">Email Address</label>
+                                    <input type="email" id="pi-email" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="pi-phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="pi-phone" name="phone" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pi-location" class="form-label">Current Location</label>
+                                    <input type="text" id="pi-location" name="location" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Programs of Interest (Select all that apply)</label>
+                                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: center; min-width: 200px;">
+                                        <input type="checkbox" id="pi-digital-literacy" name="programs" value="digital-literacy">
+                                        <label for="pi-digital-literacy" style="margin-left: 0.5rem;">Digital Literacy</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; min-width: 200px;">
+                                        <input type="checkbox" id="pi-tech-specialization" name="programs" value="tech-specialization">
+                                        <label for="pi-tech-specialization" style="margin-left: 0.5rem;">Tech Specialization</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; min-width: 200px;">
+                                        <input type="checkbox" id="pi-job-placement" name="programs" value="job-placement">
+                                        <label for="pi-job-placement" style="margin-left: 0.5rem;">Job Placement</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; min-width: 200px;">
+                                        <input type="checkbox" id="pi-university-pathway" name="programs" value="university-pathway">
+                                        <label for="pi-university-pathway" style="margin-left: 0.5rem;">University Pathway</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="pi-questions" class="form-label">Specific Questions</label>
+                                <textarea id="pi-questions" name="questions" class="form-control" rows="4" placeholder="Please let us know any specific questions you have about our programs."></textarea>
+                            </div>
+                            
+                            <div class="form-group" style="margin-top: 1rem;">
+                                <div style="display: flex; align-items: flex-start;">
+                                    <input type="checkbox" id="pi-newsletter" name="newsletter" style="margin-top: 0.25rem;">
+                                    <label for="pi-newsletter" style="margin-left: 0.5rem;">I would like to receive updates and newsletters about Nyirol Institute programs and events.</label>
+                                </div>
+                            </div>
+                            
+                            <div style="text-align: center; margin-top: 2rem;">
+                                <button type="submit" class="btn btn-primary">Request Information</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Partnership Form -->
+                    <div class="contact-content" id="partnerships">
+                        <h3>Partnership Opportunities</h3>
+                        <p>Interested in partnering with Nyirol Institute? We collaborate with organizations, businesses, educational institutions, and individuals who share our mission of empowering South Sudanese youth through technology education.</p>
+                        
+                        <form id="partnership-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="p-name" class="form-label">Contact Name</label>
+                                    <input type="text" id="p-name" name="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="p-title" class="form-label">Job Title</label>
+                                    <input type="text" id="p-title" name="title" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="p-organization" class="form-label">Organization Name</label>
+                                <input type="text" id="p-organization" name="organization" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="p-email" class="form-label">Email Address</label>
+                                    <input type="email" id="p-email" name="email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="p-phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="p-phone" name="phone" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="p-website" class="form-label">Organization Website</label>
+                                <input type="url" id="p-website" name="website" class="form-control" placeholder="https://">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Partnership Type</label>
+                                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: center; min-width: 200px;">
+                                        <input type="checkbox" id="p-financial" name="partnership_type" value="financial">
+                                        <label for="p-financial" style="margin-left: 0.5rem;">Financial Support</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; min-width: 200px;">
+                                        <input type="checkbox" id="p-technical" name="partnership_type" value="technical">
+                                        <label for="p-technical" style="margin-left: 0.5rem;">Technical Expertise</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; min-width: 200px;">
+                                        <input type="checkbox" id="p-equipment" name="partnership_type" value="equipment">
+                                        <label for="p-equipment" style="margin-left: 0.5rem;">Equipment Donation</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; min-width: 200px;">
+                                        <input type="checkbox" id="p-employment" name="partnership_type" value="employment">
+                                        <label for="p-employment" style="margin-left: 0.5rem;">Employment Opportunities</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; min-width: 200px;">
+                                        <input type="checkbox" id="p-educational" name="partnership_type" value="educational">
+                                        <label for="p-educational" style="margin-left: 0.5rem;">Educational Partnership</label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; min-width: 200px;">
+                                        <input type="checkbox" id="p-other" name="partnership_type" value="other">
+                                        <label for="p-other" style="margin-left: 0.5rem;">Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="p-proposal" class="form-label">Partnership Proposal</label>
+                                <textarea id="p-proposal" name="proposal" class="form-control" rows="5" placeholder="Please describe your proposed partnership and how it aligns with our mission." required></textarea>
+                            </div>
+                            
+                            <div style="text-align: center; margin-top: 2rem;">
+                                <button type="submit" class="btn btn-primary">Submit Proposal</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Application Form -->
+                    <div class="contact-content" id="apply">
+                        <h3>Program Application</h3>
+                        <p>Interested in applying to one of our programs? Complete this preliminary application form, and our admissions team will contact you with next steps.</p>
+                        
+                        <form id="application-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="a-first-name" class="form-label">First Name</label>
+                                    <input type="text" id="a-first-name" name="first_name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-last-name" class="form-label">Last Name</label>
+                                    <input type="text" id="a-last-name" name="last_name" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="a-email" class="form-label">Email Address</label>
+                                    <input type="email" id="a-email" name="email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="a-phone" name="phone" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="a-age" class="form-label">Age</label>
+                                    <input type="number" id="a-age" name="age" class="form-control" min="16" max="100" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-location" class="form-label">Current Location</label>
+                                    <input type="text" id="a-location" name="location" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="a-program" class="form-label">Program of Interest</label>
+                                <select id="a-program" name="program" class="form-control" required>
+                                    <option value="">Select a program</option>
+                                    <option value="digital-literacy">Digital Literacy</option>
+                                    <option value="tech-specialization">Tech Specialization</option>
+                                    <option value="university-pathway">University Pathway</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" id="specialization-field" style="display: none;">
+                                <label for="a-specialization" class="form-label">Tech Specialization</label>
+                                <select id="a-specialization" name="specialization" class="form-control">
+                                    <option value="">Select a specialization</option>
+                                    <option value="graphic-design">Graphic Design</option>
+                                    <option value="ux-ui">UX/UI Design</option>
+                                    <option value="frontend">Frontend Development</option>
+                                    <option value="backend">Backend Development</option>
+                                    <option value="data-science">Data Science</option>
+                                    <option value="data-analytics">Data Analytics</option>
+                                    <option value="animation">Animation</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="a-education" class="form-label">Highest Level of Education</label>
+                                <select id="a-education" name="education" class="form-control" required>
+                                    <option value="">Select education level</option>
+                                    <option value="primary">Primary School</option>
+                                    <option value="secondary">Secondary School</option>
+                                    <option value="diploma">Diploma</option>
+                                    <option value="bachelors">Bachelor's Degree</option>
+                                    <option value="masters">Master's Degree</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="a-experience" class="form-label">Computer Experience</label>
+                                <select id="a-experience" name="experience" class="form-control" required>
+                                    <option value="">Select experience level</option>
+                                    <option value="none">No experience</option>
+                                    <option value="basic">Basic (can use a computer for simple tasks)</option>
+                                    <option value="intermediate">Intermediate (familiar with common software)</option>
+                                    <option value="advanced">Advanced (some programming or technical skills)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="a-motivation" class="form-label">Motivation Statement</label>
+                                <textarea id="a-motivation" name="motivation" class="form-control" rows="5" placeholder="Please tell us why you are interested in this program and what you hope to achieve." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="a-questions" class="form-label">Questions or Comments</label>
+                                <textarea id="a-questions" name="questions" class="form-control" rows="3" placeholder="Do you have any questions or additional information to share?"></textarea>
+                            </div>
+                            
+                            <div style="text-align: center; margin-top: 2rem;">
+                                <button type="submit" class="btn btn-primary">Submit Application</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Map -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Location</h2>
+            </div>
+            <div class="map-container">
+                <!-- Placeholder for map - in a real implementation, this would be an actual map -->
+                <div style="width: 100%; height: 100%; background-color: #e9ecef; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Map Placeholder</h3>
+                    <p>Nyirol Institute of Innovation and Technology<br>Nyirol County, South Sudan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect With Us -->
+    <section class="section" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Connect With Us</h2>
+            </div>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>Follow us on social media to stay updated on our programs, events, and student success stories.</p>
+                <div style="display: flex; justify-content: center; gap: 1.5rem; margin: 2rem 0;">
+                    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background-color: var(--primary-color); color: var(--text-light); font-size: 1.5rem; transition: all 0.3s ease;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background-color: var(--primary-color); color: var(--text-light); font-size: 1.5rem; transition: all 0.3s ease;">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background-color: var(--primary-color); color: var(--text-light); font-size: 1.5rem; transition: all 0.3s ease;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background-color: var(--primary-color); color: var(--text-light); font-size: 1.5rem; transition: all 0.3s ease;">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; background-color: var(--primary-color); color: var(--text-light); font-size: 1.5rem; transition: all 0.3s ease;">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                <p>Subscribe to our newsletter to receive updates about our programs, events, and impact stories.</p>
+                <div style="max-width: 500px; margin: 2rem auto; display: flex;">
+                    <input type="email" placeholder="Your Email Address" class="form-control" style="border-radius: 4px 0 0 4px; border-right: none;">
+                    <button class="btn btn-primary" style="border-radius: 0 4px 4px 0;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="images/logo.svg" alt="Nyirol Institute Logo">
+                    </div>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Nyirol County, South Sudan</p>
+                        <p><i class="fas fa-envelope"></i> info@nyirolinstitute.org</p>
+                        <p><i class="fas fa-phone"></i> +211 92 123 4567</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Our Programs</a></li>
+                        <li><a href="donate.html">Support Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="programs.html#digital-literacy">Digital Literacy</a></li>
+                        <li><a href="programs.html#tech-specialization">Tech Specialization</a></li>
+                        <li><a href="programs.html#job-placement">Job Placement</a></li>
+                        <li><a href="programs.html#university-pathway">University Pathway</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Get Involved</h3>
+                    <ul>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="contact.html#partnerships">Partnerships</a></li>
+                        <li><a href="contact.html#careers">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nyirol Institute of Innovation and Technology. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Contact tab switching
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactTabs = document.querySelectorAll('.contact-tab');
+            const contactContents = document.querySelectorAll('.contact-content');
+            
+            contactTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    contactTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all contact contents
+                    contactContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Show corresponding content
+                    const formId = this.getAttribute('data-form');
+                    document.getElementById(formId).classList.add('active');
+                });
+            });
+            
+            // Show specialization field when Tech Specialization is selected
+            const programSelect = document.getElementById('a-program');
+            const specializationField = document.getElementById('specialization-field');
+            
+            if (programSelect && specializationField) {
+                programSelect.addEventListener('change', function() {
+                    if (this.value === 'tech-specialization') {
+                        specializationField.style.display = 'block';
+                    } else {
+                        specializationField.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Form submission (simulated)
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your submission! This is a demo form. In a real implementation, your information would be processed, and we would respond to your inquiry.');
+                });
+            });
+            
+            // Check if there's a hash in the URL to activate specific tab
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1); // Remove the # character
+                const tab = document.querySelector(`.contact-tab[data-form="${hash}"]`) || 
+                            document.querySelector(`.contact-tab#${hash}`);
+                
+                if (tab) {
+                    tab.click();
+                    // Scroll to the tab section
+                    setTimeout(() => {
+                        tab.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
