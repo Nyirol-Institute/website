@@ -1,0 +1,354 @@
+<%- include('layout', { 
+  title: 'Dashboard', 
+  activePage: 'dashboard',
+  user: user,
+  styles: ['/css/dashboard.css']
+}) %>
+
+<div class="dashboard-container">
+  <!-- Stats Cards -->
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="card stats-card">
+        <div class="card-body">
+          <div class="stats-icon bg-primary">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h5 class="stats-title">Applications</h5>
+          <h3 class="stats-number"><%= stats.totalApplications %></h3>
+          <p class="stats-info text-muted"><%= stats.pendingApplications %> pending</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-3">
+      <div class="card stats-card">
+        <div class="card-body">
+          <div class="stats-icon bg-success">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <h5 class="stats-title">Students</h5>
+          <h3 class="stats-number"><%= stats.totalStudents %></h3>
+          <p class="stats-info text-muted">Currently enrolled</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-3">
+      <div class="card stats-card">
+        <div class="card-body">
+          <div class="stats-icon bg-warning">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h5 class="stats-title">Donations</h5>
+          <h3 class="stats-number">$<%= stats.totalDonationAmount.toLocaleString() %></h3>
+          <p class="stats-info text-muted"><%= stats.totalDonations %> total donations</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-3">
+      <div class="card stats-card">
+        <div class="card-body">
+          <div class="stats-icon bg-info">
+            <i class="fas fa-solar-panel"></i>
+          </div>
+          <h5 class="stats-title">Solar Power</h5>
+          <h3 class="stats-number">100%</h3>
+          <p class="stats-info text-muted">System operational</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Charts Row -->
+  <div class="row mb-4">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Applications Overview</h5>
+        </div>
+        <div class="card-body">
+          <canvas id="applicationsChart" height="300"></canvas>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Application Status</h5>
+        </div>
+        <div class="card-body">
+          <canvas id="statusChart" height="300"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Recent Applications -->
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="card-title">Recent Applications</h5>
+          <a href="/admin/applications" class="btn btn-sm btn-primary">View All</a>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Program</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% recentApplications.forEach(function(application) { %>
+                  <tr>
+                    <td><%= application.firstName %> <%= application.lastName %></td>
+                    <td><%= application.Program ? application.Program.name : 'N/A' %></td>
+                    <td><%= new Date(application.applicationDate).toLocaleDateString() %></td>
+                    <td>
+                      <% if (application.status === 'pending') { %>
+                        <span class="badge bg-warning">Pending</span>
+                      <% } else if (application.status === 'under_review') { %>
+                        <span class="badge bg-info">Under Review</span>
+                      <% } else if (application.status === 'interview') { %>
+                        <span class="badge bg-primary">Interview</span>
+                      <% } else if (application.status === 'accepted') { %>
+                        <span class="badge bg-success">Accepted</span>
+                      <% } else if (application.status === 'rejected') { %>
+                        <span class="badge bg-danger">Rejected</span>
+                      <% } else if (application.status === 'waitlisted') { %>
+                        <span class="badge bg-secondary">Waitlisted</span>
+                      <% } %>
+                    </td>
+                    <td>
+                      <a href="/admin/applications/<%= application.id %>" class="btn btn-sm btn-outline-primary">View</a>
+                    </td>
+                  </tr>
+                <% }); %>
+                
+                <% if (recentApplications.length === 0) { %>
+                  <tr>
+                    <td colspan="5" class="text-center">No recent applications</td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Upcoming Deadlines & Quick Actions -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Upcoming Deadlines</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Digital Literacy Program
+              <span class="badge bg-primary rounded-pill">Aug 15, 2025</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Tech Specialization Program
+              <span class="badge bg-primary rounded-pill">Sep 1, 2025</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              University Pathway Program
+              <span class="badge bg-primary rounded-pill">Nov 30, 2025</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Quick Actions</h5>
+        </div>
+        <div class="card-body">
+          <div class="d-grid gap-2">
+            <a href="/admin/applications/new" class="btn btn-outline-primary">
+              <i class="fas fa-plus-circle me-2"></i> Add New Student
+            </a>
+            <a href="/admin/programs/new" class="btn btn-outline-primary">
+              <i class="fas fa-book me-2"></i> Create New Program
+            </a>
+            <a href="/admin/donations/new" class="btn btn-outline-primary">
+              <i class="fas fa-hand-holding-usd me-2"></i> Record Donation
+            </a>
+            <a href="/admin/reports" class="btn btn-outline-primary">
+              <i class="fas fa-chart-bar me-2"></i> Generate Reports
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Fetch dashboard data
+    fetch('/admin/api/stats')
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Initialize charts with the data
+          initializeCharts(data.stats);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching dashboard stats:', error);
+      });
+    
+    function initializeCharts(stats) {
+      // Applications Chart (Last 30 days)
+      const applicationsCtx = document.getElementById('applicationsChart').getContext('2d');
+      
+      // Sample data - in a real implementation, this would come from the API
+      const applicationsData = {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [{
+          label: 'Applications',
+          data: [12, 19, 15, 25],
+          backgroundColor: 'rgba(0, 51, 102, 0.2)',
+          borderColor: 'rgba(0, 51, 102, 1)',
+          borderWidth: 2,
+          tension: 0.4
+        }]
+      };
+      
+      new Chart(applicationsCtx, {
+        type: 'line',
+        data: applicationsData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                precision: 0
+              }
+            }
+          }
+        }
+      });
+      
+      // Status Chart
+      const statusCtx = document.getElementById('statusChart').getContext('2d');
+      
+      // Sample data - in a real implementation, this would come from the API
+      const statusData = {
+        labels: ['Pending', 'Under Review', 'Interview', 'Accepted', 'Rejected', 'Waitlisted'],
+        datasets: [{
+          data: [30, 15, 10, 25, 15, 5],
+          backgroundColor: [
+            '#ffc107', // warning - pending
+            '#17a2b8', // info - under review
+            '#007bff', // primary - interview
+            '#28a745', // success - accepted
+            '#dc3545', // danger - rejected
+            '#6c757d'  // secondary - waitlisted
+          ],
+          borderWidth: 1
+        }]
+      };
+      
+      new Chart(statusCtx, {
+        type: 'doughnut',
+        data: statusData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .stats-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stats-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .stats-title {
+    color: #6c757d;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stats-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  
+  .stats-info {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+  }
+  
+  .bg-primary {
+    background-color: #003366 !important;
+  }
+  
+  .btn-primary {
+    background-color: #003366;
+    border-color: #003366;
+  }
+  
+  .btn-primary:hover {
+    background-color: #004d99;
+    border-color: #004d99;
+  }
+  
+  .btn-outline-primary {
+    color: #003366;
+    border-color: #003366;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #003366;
+    border-color: #003366;
+  }
+</style>

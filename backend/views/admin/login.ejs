@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Nyirol Institute</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #003366;
+      --accent-color: #ffd700;
+      --text-light: #ffffff;
+      --text-dark: #333333;
+    }
+    
+    body {
+      background-color: #f5f5f5;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .login-container {
+      max-width: 400px;
+      width: 100%;
+      padding: 2rem;
+    }
+    
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-header {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      text-align: center;
+      padding: 1.5rem;
+      border-radius: 10px 10px 0 0 !important;
+    }
+    
+    .logo {
+      max-width: 80px;
+      margin-bottom: 1rem;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-primary:hover {
+      background-color: #004d99;
+      border-color: #004d99;
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.25rem rgba(0, 51, 102, 0.25);
+    }
+    
+    .alert {
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="card">
+      <div class="card-header">
+        <img src="/images/logo.svg" alt="Nyirol Institute Logo" class="logo">
+        <h4>Admin Dashboard</h4>
+      </div>
+      <div class="card-body p-4">
+        <% if (typeof error !== 'undefined') { %>
+          <div class="alert alert-danger" role="alert">
+            <%= error %>
+          </div>
+        <% } %>
+        
+        <form id="login-form" action="/api/auth/login" method="POST">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+          <div class="text-center mt-3">
+            <a href="#" class="text-decoration-none" id="forgot-password">Forgot Password?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <a href="/" class="text-decoration-none">← Back to Website</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginForm = document.getElementById('login-form');
+      const forgotPasswordLink = document.getElementById('forgot-password');
+      
+      loginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        
+        try {
+          const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+          });
+          
+          const data = await response.json();
+          
+          if (response.ok) {
+            // Login successful
+            window.location.href = '/admin/dashboard';
+          } else {
+            // Login failed
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-danger';
+            alertDiv.role = 'alert';
+            alertDiv.textContent = data.message || 'Login failed. Please check your credentials.';
+            
+            loginForm.insertBefore(alertDiv, loginForm.firstChild);
+          }
+        } catch (error) {
+          console.error('Login error:', error);
+          
+          const alertDiv = document.createElement('div');
+          alertDiv.className = 'alert alert-danger';
+          alertDiv.role = 'alert';
+          alertDiv.textContent = 'An error occurred during login. Please try again.';
+          
+          loginForm.insertBefore(alertDiv, loginForm.firstChild);
+        }
+      });
+      
+      forgotPasswordLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        
+        if (!email) {
+          const alertDiv = document.createElement('div');
+          alertDiv.className = 'alert alert-warning';
+          alertDiv.role = 'alert';
+          alertDiv.textContent = 'Please enter your email address first.';
+          
+          loginForm.insertBefore(alertDiv, loginForm.firstChild);
+          return;
+        }
+        
+        // Show confirmation dialog
+        if (confirm(`A password reset link will be sent to ${email}. Continue?`)) {
+          // Send password reset request
+          fetch('/api/auth/request-password-reset', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email })
+          })
+          .then(response => response.json())
+          .then(data => {
+            const alertDiv = document.createElement('div');
+            alertDiv.role = 'alert';
+            
+            if (data.success) {
+              alertDiv.className = 'alert alert-success';
+              alertDiv.textContent = 'If your email is registered, you will receive a password reset link.';
+            } else {
+              alertDiv.className = 'alert alert-danger';
+              alertDiv.textContent = data.message || 'Password reset request failed.';
+            }
+            
+            loginForm.insertBefore(alertDiv, loginForm.firstChild);
+          })
+          .catch(error => {
+            console.error('Password reset error:', error);
+            
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-danger';
+            alertDiv.role = 'alert';
+            alertDiv.textContent = 'An error occurred. Please try again.';
+            
+            loginForm.insertBefore(alertDiv, loginForm.firstChild);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

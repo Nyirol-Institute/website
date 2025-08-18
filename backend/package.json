@@ -1,0 +1,38 @@
+{
+  "name": "nyirol-institute-backend",
+  "version": "1.0.0",
+  "description": "Backend for Nyirol Institute of Innovation and Technology",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "echo &quot;Error: no test specified&quot; && exit 1"
+  },
+  "keywords": [
+    "education",
+    "technology",
+    "south-sudan",
+    "non-profit"
+  ],
+  "author": "Nyirol Institute",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-session-sequelize": "^7.1.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "mysql2": "^3.14.3",
+    "nodemailer": "^7.0.5",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
