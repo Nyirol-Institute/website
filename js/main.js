@@ -178,3 +178,41 @@ document.addEventListener('DOMContentLoaded', function() {
         animateStats();
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
+    const speed = 200; // lower = faster
+
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute("data-target");
+                const count = +counter.innerText;
+
+                // calculate step
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target; // make sure it ends exactly
+                }
+            };
+
+            updateCount();
+        });
+    };
+
+    // Trigger animation only when section is visible
+    const section = document.querySelector(".section");
+    const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+            animateCounters();
+            observer.unobserve(section); // run only once
+        }
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
+});
